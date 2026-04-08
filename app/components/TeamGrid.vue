@@ -52,7 +52,7 @@ const team = [
 
 .team-card {
   background: var(--card-bg);
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease;
@@ -67,7 +67,7 @@ const team = [
   width: 100%;
   aspect-ratio: 4/5;
   overflow: hidden;
-  background: #f5f5f7;
+  background: var(--gray-box);
 }
 
 .team-image {
@@ -86,11 +86,7 @@ const team = [
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  background: #ffffff;
-}
-
-:global(html.dark) .team-info {
-  background: #111111;
+  background: var(--card-bg);
 }
 
 .team-name {

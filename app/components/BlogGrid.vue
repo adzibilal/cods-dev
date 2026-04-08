@@ -53,7 +53,7 @@ const posts = [
   position: relative;
   width: 100%;
   aspect-ratio: 16/10;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   background: var(--gray-box);
   margin-bottom: 1.5rem;

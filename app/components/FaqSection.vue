@@ -107,15 +107,11 @@ const faqs = [
 }
 
 .accordion-item {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 16px;
   margin-bottom: 0.5rem;
   border: 1px solid var(--border-color);
   overflow: hidden;
-}
-
-:global(html.dark) .accordion-item {
-  background: #111111;
 }
 
 .accordion-item:last-child {

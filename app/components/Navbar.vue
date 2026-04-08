@@ -170,8 +170,8 @@ if (import.meta.client) {
 .nav-cta {
   background: var(--text-color);
   color: var(--bg-color);
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
   font-size: 0.875rem;
   font-weight: 700;
   text-decoration: none;

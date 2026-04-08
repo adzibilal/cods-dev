@@ -17,21 +17,19 @@ const services = [
     title: "Product Engineering",
     description:
       "Building scalable web and mobile apps from the ground up with clean, maintainable code.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
   },
   {
     title: "System Architecture",
     description:
       "Designing robust backends, database schemas, and cloud infrastructure ready for scale.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`,
   },
   {
     title: "UI/UX Design",
     description:
       "Creating intuitive interfaces that balance modern aesthetics with deep functionality.",
-  },
-  {
-    title: "Technical Audits",
-    description:
-      "Deep-dives into existing codebases to improve performance, security, and developer experience.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M14 11l5 5"></path></svg>`,
   },
 ];
 
@@ -156,11 +154,15 @@ const testimonials = [
     <!-- Services Section -->
     <section id="services" class="section services">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">What We Do</h2>
-          <p class="section-lead">
-            Full-stack execution and technical strategy tailored to your needs.
-          </p>
+        <div class="section-header-custom">
+          <div class="header-top">
+            <span class="label-eyebrow">• Services</span>
+            <span class="header-index">(04)</span>
+          </div>
+          <h2 class="title-giant">
+            Full-stack execution and <span>technical strategy tailored</span> to
+            your needs.
+          </h2>
         </div>
         <div class="service-grid">
           <ServiceCard
@@ -175,17 +177,22 @@ const testimonials = [
     <!-- Works Section -->
     <section id="works" class="section works">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Selected Works</h2>
-          <p class="section-lead">
-            A look at some of the problems we've solved recently.
-          </p>
+        <div class="section-header-custom">
+          <div class="header-top">
+            <span class="label-eyebrow">• Selected Works</span>
+            <span class="header-index">(05)</span>
+          </div>
+          <h2 class="title-giant">
+            A look at some of the <span>problems we've solved recently.</span>
+          </h2>
         </div>
-        <div class="work-grid">
+        <div class="work-grid-2col">
           <WorkCard v-for="work in works" :key="work.id" v-bind="work" />
         </div>
         <div class="section-actions text-center">
-          <a href="#" class="btn btn-dark-pill">See all projects</a>
+          <a href="#" class="btn-pill-small"
+            >See all projects <span class="dot-sm"></span
+          ></a>
         </div>
       </div>
     </section>
@@ -193,8 +200,14 @@ const testimonials = [
     <!-- Testimonials Section -->
     <section id="testimonials" class="section testimonials">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title uppercase">Hear From Our <br />Partners</h2>
+        <div class="section-header-custom">
+          <div class="header-top">
+            <span class="label-eyebrow">• Testimonials</span>
+            <span class="header-index">(06)</span>
+          </div>
+          <h2 class="title-giant">
+            Hear from our clients <span>around the world.</span>
+          </h2>
         </div>
 
         <div class="testimonial-grid">
@@ -213,54 +226,16 @@ const testimonials = [
       </div>
     </section>
 
-    <!-- Why Us Section -->
-    <section class="section why-us">
-      <div class="container gray-box">
-        <div class="why-header">
-          <h2 class="section-title">The CODS Way</h2>
-          <p class="section-lead">
-            Why we're different from your average agency.
-          </p>
-        </div>
-        <div class="why-grid">
-          <div class="why-item">
-            <h3 class="why-title">Direct Collaboration</h3>
-            <p>
-              You talk to the engineers building your code, not a project
-              manager middleman.
-            </p>
-          </div>
-          <div class="why-item">
-            <h3 class="why-title">Pragmatic Quality</h3>
-            <p>
-              We write clean, testable code without over-engineering for
-              problems you don't have yet.
-            </p>
-          </div>
-          <div class="why-item">
-            <h3 class="why-title">Transparent Process</h3>
-            <p>
-              Weekly demos and async updates via Slack/Discord. No black boxes.
-            </p>
-          </div>
-          <div class="why-item">
-            <h3 class="why-title">Modular Teams</h3>
-            <p>
-              We spin up the right specialists for your specific tech stack,
-              ensuring niche expertise.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Process Section -->
     <section id="process" class="section process">
       <div class="container">
-        <div class="section-header text-center">
-          <p class="eyebrow">Our Process</p>
-          <h2 class="section-title">
-            A Thoughtful, Step-by-Step Process<br />
+        <div class="section-header-custom">
+          <div class="header-top">
+            <span class="label-eyebrow">• Our Process</span>
+            <span class="header-index">(07)</span>
+          </div>
+          <h2 class="title-giant">
+            A Thoughtful, Step-by-Step Process
             <span>Designed to Deliver Exceptional Results</span>
           </h2>
         </div>
@@ -276,7 +251,9 @@ const testimonials = [
             <span class="label-eyebrow">• About Us</span>
             <span class="header-index">(08)</span>
           </div>
-          <h2 class="title-giant">The faces behind <span>successful projects execution</span></h2>
+          <h2 class="title-giant">
+            The faces behind <span>successful projects execution</span>
+          </h2>
         </div>
         <TeamGrid />
       </div>
@@ -301,8 +278,12 @@ const testimonials = [
             <span class="header-index">(10)</span>
           </div>
           <div class="title-with-action">
-            <h2 class="title-giant">Latest trends and <span>insights from our team</span></h2>
-            <a href="#" class="btn-pill-small">All Blogs <span class="dot-sm"></span></a>
+            <h2 class="title-giant">
+              Latest trends and <span>insights from our team</span>
+            </h2>
+            <a href="#" class="btn-pill-small"
+              >All Blogs <span class="dot-sm"></span
+            ></a>
           </div>
         </div>
         <BlogGrid />
@@ -314,10 +295,14 @@ const testimonials = [
       <div class="container">
         <div class="footer-split">
           <div class="footer-left">
-            <h2 class="footer-cta-text">Let's work together and make <span>cool things!</span></h2>
-            <a href="mailto:hello@cods.dev" class="btn-talk">Let's Talk <span class="dot-sm"></span></a>
+            <h2 class="footer-cta-text">
+              Let's work together and make <span>cool things!</span>
+            </h2>
+            <a href="mailto:hello@cods.dev" class="btn-talk"
+              >Let's Talk <span class="dot-sm"></span
+            ></a>
           </div>
-          
+
           <div class="footer-right">
             <div class="footer-links-grid">
               <div class="footer-group">
@@ -333,7 +318,7 @@ const testimonials = [
                 <a href="#">Facebook</a>
               </div>
             </div>
-            
+
             <div class="footer-brand-area">
               <div class="brand-signature">
                 CODS Dev <span class="reg-mark">®</span>
@@ -536,10 +521,10 @@ const testimonials = [
 }
 
 /* Works Grid */
-.work-grid {
+.work-grid-2col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
   margin-bottom: 4rem;
 }
 
@@ -652,7 +637,8 @@ const testimonials = [
   letter-spacing: 0.05em;
 }
 
-.header-index, .header-index-alt {
+.header-index,
+.header-index-alt {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   font-weight: 600;
@@ -767,7 +753,8 @@ const testimonials = [
   margin-bottom: 2rem;
 }
 
-.footer-group p, .footer-group a {
+.footer-group p,
+.footer-group a {
   display: block;
   font-size: 1.125rem;
   color: #ffffff;
@@ -812,11 +799,11 @@ const testimonials = [
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-  
+
   .footer-brand-area {
     text-align: left;
   }
-  
+
   .title-with-action {
     flex-direction: column;
     align-items: flex-start;

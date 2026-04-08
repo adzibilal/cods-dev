@@ -89,7 +89,7 @@ const processes = [
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--border-color);
+  background: rgba(0, 0, 0, 0.15);
   transition: all 0.3s;
 }
 
@@ -100,7 +100,7 @@ const processes = [
 }
 
 :global(html.dark) .dot {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 :global(html.dark) .dot.active {
