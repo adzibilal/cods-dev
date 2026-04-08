@@ -1,19 +1,19 @@
 <script setup lang="ts">
 const logos = [
-  { name: 'Swiss', text: 'SWISS' },
-  { name: 'Rise', text: 'RISE' },
-  { name: 'Greenish', text: 'GREEN' },
-  { name: 'Bristol', text: 'BRISTOL' },
-  { name: 'Italic', text: 'italic' },
-  { name: 'Phoenix', text: 'PHOENIX' },
-]
+  { name: "Swiss", text: "SWISS" },
+  { name: "Rise", text: "RISE" },
+  { name: "Greenish", text: "GREEN" },
+  { name: "Bristol", text: "BRISTOL" },
+  { name: "Italic", text: "italic" },
+  { name: "Phoenix", text: "PHOENIX" },
+];
 </script>
 
 <template>
   <section class="logo-carousel-section">
     <div class="container">
       <h2 class="carousel-title">Trusted By Leading Teams</h2>
-      
+
       <div class="carousel-container">
         <!-- Mask for fading edges -->
         <div class="carousel-mask">
@@ -23,11 +23,19 @@ const logos = [
               <span class="logo-text">{{ logo.text }}</span>
             </div>
             <!-- Second set for seamless loop -->
-            <div v-for="logo in logos" :key="logo.name + '-loop'" class="logo-card">
+            <div
+              v-for="logo in logos"
+              :key="logo.name + '-loop'"
+              class="logo-card"
+            >
               <span class="logo-text">{{ logo.text }}</span>
             </div>
             <!-- Third set for wider screens -->
-            <div v-for="logo in logos" :key="logo.name + '-loop-2'" class="logo-card">
+            <div
+              v-for="logo in logos"
+              :key="logo.name + '-loop-2'"
+              class="logo-card"
+            >
               <span class="logo-text">{{ logo.text }}</span>
             </div>
           </div>
@@ -95,7 +103,7 @@ const logos = [
   flex-shrink: 0;
   width: 180px;
   height: 90px;
-  background: #FFFFFF;
+  background: var(--card-bg);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -113,15 +121,15 @@ const logos = [
 }
 
 .logo-text {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: "Space Grotesk", system-ui, sans-serif;
   font-weight: 800;
   font-size: 1.25rem;
-  color: #1A1A1A;
+  color: var(--text-color);
   letter-spacing: -0.02em;
 }
 
 :global(html.dark) .logo-text {
-  color: #F2F2F2;
+  color: #f2f2f2;
 }
 
 .logo-card:hover {
@@ -131,8 +139,12 @@ const logos = [
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 3)); } /* Slide through one set of logos */
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  } /* Slide through one set of logos */
 }
 
 @media (max-width: 768px) {

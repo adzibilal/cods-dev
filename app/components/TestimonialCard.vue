@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <div class="testimonial-card">
     <p class="testimonial-quote">"{{ quote }}"</p>
-    
+
     <div class="testimonial-footer">
       <div class="author-info">
         <h4 class="author-name">{{ name }}</h4>
@@ -23,7 +23,7 @@ defineProps<{
 
 <style scoped>
 .testimonial-card {
-  background: var(--gray-box);
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: 24px;
   display: flex;
