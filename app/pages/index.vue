@@ -268,23 +268,79 @@ const testimonials = [
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <footer id="contact" class="footer">
-      <div class="container footer-inner">
-        <div class="footer-cta">
-          <h2 class="footer-title">Ready to build something extraordinary?</h2>
-          <p class="footer-lead">Consult your project with our collective.</p>
-          <a href="mailto:hello@cods.dev" class="btn btn-primary lg"
-            >hello@cods.dev</a
-          >
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-info">
-            <img src="/logo-white.png" alt="CODS Dev" class="footer-logo" />
-            <span class="divider"></span>
-            <span class="location">Jakarta / Remote</span>
+    <!-- Team Section -->
+    <section id="team" class="section team">
+      <div class="container">
+        <div class="section-header-custom">
+          <div class="header-top">
+            <span class="label-eyebrow">• About Us</span>
+            <span class="header-index">(08)</span>
           </div>
-          <div class="copyright">© 2026 CODS Dev. Built for performance.</div>
+          <h2 class="title-giant">The faces behind <span>successful projects execution</span></h2>
+        </div>
+        <TeamGrid />
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq">
+      <div class="container">
+        <div class="header-top-simple">
+          <span class="header-index-alt">(09)</span>
+        </div>
+        <FaqSection />
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section blog">
+      <div class="container">
+        <div class="section-header-custom">
+          <div class="header-top">
+            <span class="label-eyebrow">• Our Blog</span>
+            <span class="header-index">(10)</span>
+          </div>
+          <div class="title-with-action">
+            <h2 class="title-giant">Latest trends and <span>insights from our team</span></h2>
+            <a href="#" class="btn-pill-small">All Blogs <span class="dot-sm"></span></a>
+          </div>
+        </div>
+        <BlogGrid />
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer-new">
+      <div class="container">
+        <div class="footer-split">
+          <div class="footer-left">
+            <h2 class="footer-cta-text">Let's work together and make <span>cool things!</span></h2>
+            <a href="mailto:hello@cods.dev" class="btn-talk">Let's Talk <span class="dot-sm"></span></a>
+          </div>
+          
+          <div class="footer-right">
+            <div class="footer-links-grid">
+              <div class="footer-group">
+                <h4 class="footer-group-title">Contact</h4>
+                <p>Jakarta / Remote</p>
+                <a href="mailto:hello@cods.dev">hello@cods.dev</a>
+                <p>+62 (812) 3456-7890</p>
+              </div>
+              <div class="footer-group">
+                <h4 class="footer-group-title">Follow Us</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+              </div>
+            </div>
+            
+            <div class="footer-brand-area">
+              <div class="brand-signature">
+                CODS Dev <span class="reg-mark">®</span>
+              </div>
+              <p class="studio-tag">Digital Collective</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -568,62 +624,203 @@ const testimonials = [
   color: var(--text-secondary);
 }
 
-/* Footer Style */
-.footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
-  padding: 10rem 0 4rem;
+/* Layout Helpers */
+.section-header-custom {
+  margin-bottom: 4rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
 }
 
-.footer-cta {
-  text-align: center;
-  margin-bottom: 8rem;
-}
-
-.footer-title {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
-}
-
-.footer-lead {
-  font-size: 1.25rem;
-  opacity: 0.7;
-  margin-bottom: 3rem;
-}
-
-.footer-bottom {
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 2rem;
-  font-size: 0.875rem;
-  opacity: 0.6;
+  margin-bottom: 2rem;
 }
 
-.footer-info {
+.header-top-simple {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
 }
 
-.footer-logo {
-  height: 24px;
-  width: auto;
-  opacity: 0.8;
-}
-
-.brand-small {
+.label-eyebrow {
+  font-size: 0.8125rem;
   font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.divider {
-  width: 1px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.3);
+.header-index, .header-index-alt {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.title-giant {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+  max-width: 900px;
+}
+
+.title-giant span {
+  color: var(--text-secondary);
+}
+
+.title-with-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.btn-pill-small {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--gray-box);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-pill-small:hover {
+  border-color: var(--accent-color);
+}
+
+/* Footer New */
+.footer-new {
+  background: #000000;
+  color: #ffffff;
+  padding: 10rem 0 6rem;
+}
+
+.footer-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+}
+
+.footer-cta-text {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 4rem;
+}
+
+.footer-cta-text span {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-talk {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-talk:hover {
+  transform: scale(1.05);
+}
+
+.dot-sm {
+  width: 8px;
+  height: 8px;
+  background: #000000;
+  border-radius: 50%;
+}
+
+.btn-pill-small .dot-sm {
+  background: var(--text-color);
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 8rem;
+}
+
+.footer-group-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2rem;
+}
+
+.footer-group p, .footer-group a {
+  display: block;
+  font-size: 1.125rem;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.footer-group a:hover {
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+.footer-brand-area {
+  text-align: right;
+  margin-top: auto;
+}
+
+.brand-signature {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.reg-mark {
+  font-size: 0.3em;
+  vertical-align: top;
+  margin-left: 0.1em;
+}
+
+.studio-tag {
+  font-size: 1.25rem;
+  font-weight: 500;
+  opacity: 0.4;
+}
+
+@media (max-width: 1024px) {
+  .footer-split {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .footer-brand-area {
+    text-align: left;
+  }
+  
+  .title-with-action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 768px) {
@@ -633,16 +830,6 @@ const testimonials = [
 
   .gray-box {
     padding: 3rem 1.5rem;
-  }
-
-  .footer-title {
-    font-size: 2rem;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
   }
 }
 </style>
