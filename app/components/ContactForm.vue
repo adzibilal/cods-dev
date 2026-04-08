@@ -5,23 +5,63 @@ const formData = reactive({
   message: "",
 });
 
+const { fetchStrapi } = useStrapiClient();
+
 const isSubmitting = ref(false);
 const isSuccess = ref(false);
 
-const handleSubmit = async () => {
-  isSubmitting.value = true;
-  // Simulate API call
-  await new Promise((resolve) => setTimeout(resolve, 1500));
-  isSubmitting.value = false;
-  isSuccess.value = true;
+const checkRateLimit = () => {
+  if (import.meta.server) return [];
+  const now = Date.now();
+  const rawTimestamps = localStorage.getItem("contact_submissions");
+  let timestamps = rawTimestamps ? JSON.parse(rawTimestamps) : [];
 
-  // Reset form after 3 seconds
-  setTimeout(() => {
-    isSuccess.value = false;
-    formData.name = "";
-    formData.email = "";
-    formData.message = "";
-  }, 3000);
+  // Filter for last 1 hour
+  const oneHourAgo = now - 60 * 60 * 1000;
+  timestamps = timestamps.filter((ts: number) => ts > oneHourAgo);
+
+  return timestamps;
+};
+
+const updateRateLimit = (timestamps: number[]) => {
+  if (import.meta.server) return;
+  timestamps.push(Date.now());
+  localStorage.setItem("contact_submissions", JSON.stringify(timestamps));
+};
+
+const handleSubmit = async () => {
+  const timestamps = checkRateLimit();
+  if (timestamps.length >= 3) {
+    alert(
+      "Slow down! You've reached the maximum number of messages (3 per hour). Please try again later.",
+    );
+    return;
+  }
+
+  isSubmitting.value = true;
+
+  try {
+    await fetchStrapi("messages", {
+      method: "POST",
+      body: { data: { ...formData } },
+    });
+
+    updateRateLimit(timestamps);
+    isSuccess.value = true;
+
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      isSuccess.value = false;
+      formData.name = "";
+      formData.email = "";
+      formData.message = "";
+    }, 3000);
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("Something went wrong while sending your message. Please try again.");
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 </script>
 
