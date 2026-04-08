@@ -1,38 +1,43 @@
 <script setup lang="ts">
-import { 
-  AccordionRoot, 
-  AccordionItem, 
-  AccordionTrigger, 
-  AccordionContent, 
-  AccordionHeader 
-} from 'reka-ui'
+import {
+  AccordionRoot,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  AccordionHeader,
+} from "reka-ui";
 
 const faqs = [
   {
     num: "01",
     question: "How involved can I be in the design process?",
-    answer: "We maintain high transparency through weekly demos and access to our Slack/Discord channels. You are as involved as you want to be."
+    answer:
+      "We maintain high transparency through weekly demos and access to our Slack/Discord channels. You are as involved as you want to be.",
   },
   {
     num: "02",
     question: "What types of projects does CODS specialize in?",
-    answer: "We specialize in complex web applications, fintech solutions, and product infrastructure that needs to scale."
+    answer:
+      "We specialize in complex web applications, fintech solutions, and product infrastructure that needs to scale.",
   },
   {
     num: "03",
     question: "What is the typical timeline for completing a project?",
-    answer: "Most MVP projects take between 6 to 12 weeks, depending on complexity and the depth of integration required."
+    answer:
+      "Most MVP projects take between 6 to 12 weeks, depending on complexity and the depth of integration required.",
   },
   {
     num: "04",
     question: "How do you handle post-launch support?",
-    answer: "We offer retained collaboration for ongoing evolution, ensuring your system continues to perform as your user base grows."
+    answer:
+      "We offer retained collaboration for ongoing evolution, ensuring your system continues to perform as your user base grows.",
   },
   {
     num: "05",
     question: "What sets CODS apart from traditional agencies?",
-    answer: "No middlemen. You talk directly to the engineers building your product. We optimize for high-impact execution over overhead."
-  }
+    answer:
+      "No middlemen. You talk directly to the engineers building your product. We optimize for high-impact execution over overhead.",
+  },
 ];
 </script>
 
@@ -41,30 +46,40 @@ const faqs = [
     <div class="faq-info">
       <div class="section-header">
         <p class="eyebrow small">FAQ</p>
-        <h2 class="section-title">Frequently Asked <br/>Questions</h2>
+        <h2 class="section-title">Frequently Asked <br />Questions</h2>
         <p class="section-lead">
           Your questions about our process, services, and workflow — answered.
         </p>
       </div>
     </div>
-    
+
     <div class="faq-content">
-      <AccordionRoot type="single" :collapsible="true" class="accordion-root" default-value="01">
-        <AccordionItem v-for="faq in faqs" :key="faq.num" :value="faq.num" class="accordion-item">
+      <AccordionRoot
+        type="single"
+        :collapsible="true"
+        class="accordion-root"
+        default-value="01"
+      >
+        <AccordionItem
+          v-for="faq in faqs"
+          :key="faq.num"
+          :value="faq.num"
+          class="accordion-item"
+        >
           <AccordionHeader class="accordion-header">
             <AccordionTrigger class="accordion-trigger">
               <span class="faq-num">{{ faq.num }}.</span>
               <span class="faq-question">{{ faq.question }}</span>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                stroke-width="2" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
                 class="faq-arrow"
               >
                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -170,13 +185,25 @@ const faqs = [
 }
 
 @keyframes slideDown {
-  from { height: 0; opacity: 0; }
-  to { height: var(--reka-accordion-content-height); opacity: 1; }
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--reka-accordion-content-height);
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { height: var(--reka-accordion-content-height); opacity: 1; }
-  to { height: 0; opacity: 0; }
+  from {
+    height: var(--reka-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
 }
 
 @media (max-width: 1024px) {

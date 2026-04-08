@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { 
-  NavigationMenuRoot, 
-  NavigationMenuList, 
-  NavigationMenuItem, 
-  NavigationMenuLink 
-} from 'reka-ui'
+import {
+  NavigationMenuRoot,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink,
+} from "reka-ui";
 
-const colorMode = useState('color-mode')
-const isScrolled = ref(false)
+const colorMode = useState("color-mode");
+const isScrolled = ref(false);
 
 if (import.meta.client) {
-  window.addEventListener('scroll', () => {
-    isScrolled.value = window.scrollY > 50
-  })
+  window.addEventListener("scroll", () => {
+    isScrolled.value = window.scrollY > 50;
+  });
 }
 </script>
 
@@ -21,31 +21,37 @@ if (import.meta.client) {
     <div class="navbar-container">
       <!-- Logo Section -->
       <NuxtLink to="/" class="brand-logo">
-        <img 
-          :src="colorMode === 'dark' ? '/logo-white.png' : '/logo-maroon.png'" 
-          alt="CODS Dev" 
-          class="logo-img" 
+        <img
+          :src="colorMode === 'dark' ? '/logo-white.png' : '/logo-maroon.png'"
+          alt="CODS Dev"
+          class="logo-img"
         />
       </NuxtLink>
-      
+
       <!-- Navigation Menu -->
       <NavigationMenuRoot class="nav-root">
         <NavigationMenuList class="nav-list">
           <NavigationMenuItem class="nav-item">
-            <NavigationMenuLink href="#services" class="nav-link">Services</NavigationMenuLink>
+            <NavigationMenuLink href="#services" class="nav-link"
+              >Services</NavigationMenuLink
+            >
           </NavigationMenuItem>
-          
+
           <NavigationMenuItem class="nav-item">
-            <NavigationMenuLink href="#works" class="nav-link">Works</NavigationMenuLink>
+            <NavigationMenuLink href="#works" class="nav-link"
+              >Works</NavigationMenuLink
+            >
           </NavigationMenuItem>
-          
+
           <NavigationMenuItem class="nav-item">
-            <NavigationMenuLink href="#process" class="nav-link">Process</NavigationMenuLink>
+            <NavigationMenuLink href="#process" class="nav-link"
+              >Process</NavigationMenuLink
+            >
           </NavigationMenuItem>
-          
+
           <div class="nav-group">
             <NavigationMenuItem class="nav-item">
-              <NavigationMenuLink href="mailto:hello@cods.dev" class="nav-cta">
+              <NavigationMenuLink href="#contact" class="nav-cta">
                 Get in Touch
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -152,7 +158,7 @@ if (import.meta.client) {
 
 /* Custom indicator line */
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -191,15 +197,15 @@ if (import.meta.client) {
   :deep(.nav-list) {
     gap: 1rem;
   }
-  
+
   .nav-link {
-    display: none; 
+    display: none;
   }
-  
+
   .nav-group {
     gap: 0.75rem;
   }
-  
+
   .nav-cta {
     padding: 0.6rem 1rem;
     font-size: 0.75rem;

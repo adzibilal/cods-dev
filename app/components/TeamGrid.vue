@@ -1,25 +1,25 @@
 <script setup lang="ts">
 const team = [
   {
-    name: "Emma Richardson",
-    role: "Lead Designer",
-    avatar: "/avatars/avatar-1.png"
+    name: "Adzi Bilal",
+    role: "Software Engineer",
+    avatar: "/adzi.png",
   },
   {
-    name: "Daniel Lee",
-    role: "Brand Strategist",
-    avatar: "/avatars/avatar-2.png"
+    name: "Adzi Bilal",
+    role: "Software Engineer",
+    avatar: "/adzi.png",
   },
   {
-    name: "Maria Lopez",
-    role: "Web Designer",
-    avatar: "/avatars/avatar-3.png"
+    name: "Adzi Bilal",
+    role: "Software Engineer",
+    avatar: "/adzi.png",
   },
   {
-    name: "Priya Sharma",
-    role: "UX/UI Specialist",
-    avatar: "/avatars/avatar-4.png"
-  }
+    name: "Adzi Bilal",
+    role: "Software Engineer",
+    avatar: "/adzi.png",
+  },
 ];
 </script>
 
