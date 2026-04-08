@@ -44,7 +44,7 @@ const works = [
       "A platform that transforms messy documentation into a searchable, chat-enabled knowledge base using vector-search.",
     image: "/works-mindsync.png",
     badges: ["AI / Knowledge", "Enterprise"],
-    isFeatured: false
+    isFeatured: false,
   },
   {
     id: "02",
@@ -54,7 +54,7 @@ const works = [
       "A streamlined mobile app for managing shared expenses with offline-first reliability.",
     image: "/works-splitbillz.png",
     badges: ["Fintech", "Mobile App"],
-    isFeatured: false
+    isFeatured: false,
   },
   {
     id: "03",
@@ -64,7 +64,7 @@ const works = [
       "A high-performance dashboard for global data management with zero-lag rendering.",
     image: "/works-acclime.png",
     badges: ["Data Viz", "Corporate"],
-    isFeatured: false
+    isFeatured: false,
   },
 ];
 
@@ -72,33 +72,38 @@ const testimonials = [
   {
     name: "Emma Richardson",
     role: "Product Manager",
-    quote: "Working with CODS Dev felt like having an elite internal engineering team. Their technical depth and speed are unmatched.",
-    avatar: "/avatars/avatar-1.png"
+    quote:
+      "Working with CODS Dev felt like having an elite internal engineering team. Their technical depth and speed are unmatched.",
+    avatar: "/avatars/avatar-1.png",
   },
   {
     name: "Daniel Lee",
     role: "CTO @ Streamline",
-    quote: "The modular team approach is brilliant. We got exactly the niche expertise we needed for our integration without the overhead.",
-    avatar: "/avatars/avatar-2.png"
+    quote:
+      "The modular team approach is brilliant. We got exactly the niche expertise we needed for our integration without the overhead.",
+    avatar: "/avatars/avatar-2.png",
   },
   {
     name: "Maria Lopez",
     role: "Senior Engineer",
-    quote: "CODS doesn't just write code; they design systems that scale. Their pragmatic approach to quality saved us months of rework.",
-    avatar: "/avatars/avatar-3.png"
+    quote:
+      "CODS doesn't just write code; they design systems that scale. Their pragmatic approach to quality saved us months of rework.",
+    avatar: "/avatars/avatar-3.png",
   },
   {
     name: "Priya Sharma",
     role: "Founder, GrowthMetric",
-    quote: "The level of transparency and direct access to engineers is refreshing. No middlemen, just pure execution and results.",
-    avatar: "/avatars/avatar-4.png"
+    quote:
+      "The level of transparency and direct access to engineers is refreshing. No middlemen, just pure execution and results.",
+    avatar: "/avatars/avatar-4.png",
   },
   {
     name: "Sarah Williams",
     role: "UX Lead",
-    quote: "They truly understand the intersection of design and engineering. The end product was both technically robust and beautiful.",
-    avatar: "/avatars/avatar-5.png"
-  }
+    quote:
+      "They truly understand the intersection of design and engineering. The end product was both technically robust and beautiful.",
+    avatar: "/avatars/avatar-5.png",
+  },
 ];
 </script>
 
@@ -189,24 +194,21 @@ const testimonials = [
     <section id="testimonials" class="section testimonials">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title uppercase">Hear From Our <br/>Partners</h2>
+          <h2 class="section-title uppercase">Hear From Our <br />Partners</h2>
         </div>
-        
+
         <div class="testimonial-grid">
           <!-- Featured Stats Card -->
           <div class="testimonial-featured">
             <h3 class="stats-number">92%</h3>
             <p class="stats-text">
-              Of our partners transition to long-term retained collaboration after their first project.
+              Of our partners transition to long-term retained collaboration
+              after their first project.
             </p>
           </div>
-          
+
           <!-- Testimonial Cards -->
-          <TestimonialCard 
-            v-for="t in testimonials" 
-            :key="t.name" 
-            v-bind="t" 
-          />
+          <TestimonialCard v-for="t in testimonials" :key="t.name" v-bind="t" />
         </div>
       </div>
     </section>
@@ -255,12 +257,9 @@ const testimonials = [
     <!-- Process Section -->
     <section id="process" class="section process">
       <div class="container">
-        <div class="process-header-complex">
-          <div class="process-top-row">
-            <span class="process-label"><span class="dot-prefix">•</span> Our Process</span>
-            <span class="process-index">(03)</span>
-          </div>
-          <h2 class="process-big-title">
+        <div class="section-header text-center">
+          <p class="eyebrow">Our Process</p>
+          <h2 class="section-title">
             A Thoughtful, Step-by-Step Process<br />
             <span>Designed to Deliver Exceptional Results</span>
           </h2>
@@ -494,7 +493,7 @@ const testimonials = [
 
 .btn-dark-pill {
   background: #000000;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0.875rem 2.5rem;
   border-radius: 100px;
   font-size: 0.9375rem;
@@ -566,52 +565,6 @@ const testimonials = [
 .why-item p {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-/* Complex Process Header */
-.process-header-complex {
-  margin-bottom: 1rem;
-}
-
-.process-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.process-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.dot-prefix {
-  font-size: 1.25rem;
-  color: var(--text-color);
-  line-height: 0.5;
-}
-
-.process-index {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  letter-spacing: 0.05em;
-}
-
-.process-big-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--text-color);
-  letter-spacing: -0.02em;
-}
-
-.process-big-title span {
   color: var(--text-secondary);
 }
 

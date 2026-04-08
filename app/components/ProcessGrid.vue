@@ -54,14 +54,14 @@ const processes = [
 .process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   margin-top: 3rem;
 }
 
 .process-card {
   background: var(--gray-box);
-  padding: 2.5rem 1.5rem;
-  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, border-color 0.3s ease;
   display: flex;
@@ -94,7 +94,7 @@ const processes = [
 }
 
 .dot.active {
-  background: var(--text-color);
+  background: var(--accent-color);
   width: 12px;
   border-radius: 100px;
 }
@@ -104,7 +104,7 @@ const processes = [
 }
 
 :global(html.dark) .dot.active {
-  background: var(--text-color);
+  background: var(--accent-color);
 }
 
 .process-num {
@@ -115,10 +115,10 @@ const processes = [
 }
 
 .process-icon {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   margin-bottom: 1.5rem;
-  color: var(--text-color);
+  color: var(--accent-color);
 }
 
 .process-icon :deep(svg) {
