@@ -12,7 +12,7 @@ defineProps<{
           <span class="label-eyebrow">• Testimonials</span>
           <span class="header-index">(06)</span>
         </div>
-        <h2 class="title-giant">
+        <h2 class="title-giant reveal-type">
           Hear from our clients <span>around the world.</span>
         </h2>
       </div>

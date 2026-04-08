@@ -5,8 +5,73 @@ export const useScrollReveal = () => {
   if (import.meta.client) {
     gsap.registerPlugin(ScrollTrigger);
 
+    const splitTextNodes = (el: HTMLElement) => {
+      const nodes = Array.from(el.childNodes);
+      el.innerHTML = '';
+
+      nodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent || '';
+          // Split by whitespace but keep the whitespace as tokens
+          const tokens = text.split(/(\s+)/);
+          
+          tokens.forEach(token => {
+            if (/\s+/.test(token)) {
+              // It's whitespace
+              const span = document.createElement('span');
+              span.textContent = token;
+              el.appendChild(span);
+            } else if (token.length > 0) {
+              // It's a word, wrap it in a word container
+              const wordSpan = document.createElement('span');
+              wordSpan.classList.add('reveal-word');
+              
+              [...token].forEach(char => {
+                const charSpan = document.createElement('span');
+                charSpan.textContent = char;
+                charSpan.classList.add('reveal-char');
+                wordSpan.appendChild(charSpan);
+              });
+              el.appendChild(wordSpan);
+            }
+          });
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const clone = (node as HTMLElement).cloneNode(true) as HTMLElement;
+          splitTextNodes(clone);
+          el.appendChild(clone);
+        }
+      });
+    };
+
     const initReveal = () => {
-      // Reveal standard sections
+      // 1. Staggered Character Reveal (Typing Effect)
+      const typeReveals = document.querySelectorAll('.reveal-type');
+      typeReveals.forEach((el) => {
+        const htmlElement = el as HTMLElement;
+        splitTextNodes(htmlElement);
+        
+        const chars = htmlElement.querySelectorAll('.reveal-char');
+        gsap.fromTo(chars, 
+          { 
+            opacity: 0,
+            y: 10
+          }, 
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.025,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+
+      // 2. Reveal standard sections
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach((el) => {
         gsap.fromTo(el, 
@@ -28,7 +93,7 @@ export const useScrollReveal = () => {
         );
       });
 
-      // Reveal-up (slightly faster/higher)
+      // 3. Reveal-up (slightly faster/higher)
       const revealsUp = document.querySelectorAll('.reveal-up');
       revealsUp.forEach((el) => {
         gsap.fromTo(el, 
@@ -50,7 +115,7 @@ export const useScrollReveal = () => {
         );
       });
 
-      // Staggered grid reveals
+      // 4. Staggered grid reveals
       const staggers = document.querySelectorAll('.reveal-stagger');
       staggers.forEach((container) => {
         const children = container.children;
@@ -74,8 +139,8 @@ export const useScrollReveal = () => {
         );
       });
 
-      // Hero specific text reveal
-      const heroTexts = document.querySelectorAll('.hero .reveal-text');
+      // 5. Hero specific text reveal (Backup if not using reveal-type)
+      const heroTexts = document.querySelectorAll('.hero .reveal-text:not(.reveal-type)');
       if (heroTexts.length > 0) {
         gsap.fromTo(heroTexts, 
           { 

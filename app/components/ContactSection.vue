@@ -10,7 +10,7 @@
           <span class="label-eyebrow">• Connect</span>
           <span class="header-index">(11)</span>
         </div>
-        <h2 class="title-giant">
+        <h2 class="title-giant reveal-type">
           Have a project in mind? <span>Let's talk technical.</span>
         </h2>
       </div>

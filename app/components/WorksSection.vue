@@ -12,7 +12,7 @@ defineProps<{
           <span class="label-eyebrow">• Selected Works</span>
           <span class="header-index">(05)</span>
         </div>
-        <h2 class="title-giant">
+        <h2 class="title-giant reveal-type">
           A look at some of the <span>problems we've solved recently.</span>
         </h2>
       </div>

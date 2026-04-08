@@ -24,7 +24,7 @@ const colorMode = useState<string>("color-mode");
 
     <div class="container hero-content">
       <p class="eyebrow reveal-text">Collective of Digital Specialists</p>
-      <h1 class="hero-title reveal-text">
+      <h1 class="hero-title reveal-text reveal-type">
         We build systems that work, <br />
         <span>so you can focus on scale.</span>
       </h1>

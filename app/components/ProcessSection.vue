@@ -10,7 +10,7 @@
           <span class="label-eyebrow">• Our Process</span>
           <span class="header-index">(07)</span>
         </div>
-        <h2 class="title-giant">
+        <h2 class="title-giant reveal-type">
           A Thoughtful, Step-by-Step Process
           <span>Designed to Deliver Exceptional Results</span>
         </h2>

@@ -182,7 +182,7 @@ body {
   max-width: 900px;
 }
 
-.title-giant span {
+.title-giant span:not(.reveal-word):not(.reveal-char) {
   color: var(--text-secondary);
 }
 
@@ -211,6 +211,15 @@ body {
   height: 6px;
   background: var(--accent-color);
   border-radius: 50%;
+}
+
+.reveal-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.reveal-char {
+  display: inline-block;
 }
 
 /* GSAP Reveal Init State */

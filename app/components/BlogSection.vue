@@ -11,7 +11,7 @@
           <span class="header-index">(10)</span>
         </div>
         <div class="title-with-action">
-          <h2 class="title-giant">
+          <h2 class="title-giant reveal-type">
             Latest trends and <span>insights from our team</span>
           </h2>
           <a href="#" class="btn-pill-small">

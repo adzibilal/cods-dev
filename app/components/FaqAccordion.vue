@@ -46,7 +46,7 @@ const faqs = [
     <div class="faq-info">
       <div class="section-header">
         <p class="eyebrow small">FAQ</p>
-        <h2 class="section-title">Frequently Asked <br />Questions</h2>
+        <h2 class="section-title reveal-type">Frequently Asked <br />Questions</h2>
         <p class="section-lead">
           Your questions about our process, services, and workflow — answered.
         </p>

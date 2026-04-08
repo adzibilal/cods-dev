@@ -12,7 +12,7 @@ defineProps<{
           <span class="label-eyebrow">• Services</span>
           <span class="header-index">(04)</span>
         </div>
-        <h2 class="title-giant">
+        <h2 class="title-giant reveal-type">
           Full-stack execution and <span>technical strategy tailored</span> to
           your needs.
         </h2>
