@@ -11,8 +11,8 @@ This document outlines the required setup in Strapi CMS to manage the content of
 | `title`       | Text (Short)           | Project main title                    |
 | `slug`        | UID                    | Linked to `title`                     |
 | `subtitle`    | Text (Short)           | e.g. "Fintech / Consumer Product"     |
-| `description` | Text (Long)            | Project overview                      |
-| `image`       | Media (Single)         | Project preview image                 |
+| `description` | Blocks / Rich Text     | Project overview                      |
+| `image`       | Media (Multiple)       | Project preview image                 |
 | `badges`      | Component (Repeatable) | `label`: String (e.g. "AI", "Modern") |
 | `isFeatured`  | Boolean                | Highlight on landing page             |
 

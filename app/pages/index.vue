@@ -34,35 +34,7 @@ const services = [
   },
 ];
 
-const works = [
-  {
-    id: "01",
-    title: "MindSync",
-    subtitle: "Enterprise Knowledge Base / AI",
-    description: "A platform that transforms messy documentation into a searchable, chat-enabled knowledge base using vector-search.",
-    image: "/works-mindsync.png",
-    badges: ["AI / Knowledge", "Enterprise"],
-    isFeatured: false,
-  },
-  {
-    id: "02",
-    title: "Splitbillz",
-    subtitle: "Fintech / Consumer Product",
-    description: "A streamlined mobile app for managing shared expenses with offline-first reliability.",
-    image: "/works-splitbillz.png",
-    badges: ["Fintech", "Mobile App"],
-    isFeatured: false,
-  },
-  {
-    id: "03",
-    title: "Acclime Group",
-    subtitle: "Data Visualization / Corporate",
-    description: "A high-performance dashboard for global data management with zero-lag rendering.",
-    image: "/works-acclime.png",
-    badges: ["Data Viz", "Corporate"],
-    isFeatured: false,
-  },
-];
+// Testimonials data (keep for now until next phase)
 
 const testimonials = [
   {
@@ -104,7 +76,7 @@ const testimonials = [
     <Hero />
     <LogoCarousel />
     <ServicesSection :services="services" />
-    <WorksSection :works="works" />
+    <WorksSection />
     <TestimonialsSection :testimonials="testimonials" />
     <ProcessSection />
     <TeamSection />

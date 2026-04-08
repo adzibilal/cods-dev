@@ -1,5 +1,22 @@
 <script setup lang="ts">
-// ContactForm is already a global component
+const { initReveal } = useScrollReveal();
+
+// Fetch Home Page Settings with shared composable
+const { data: homeData, pending } = await useHomePageData();
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
+  }
+});
+
+// Fallback content
+const defaultEmail = "hello@cods.dev";
+const defaultLead =
+  "Our engineering collective is ready to dive into your most complex challenges. No middlemen, no corporate bloat—just direct paths to execution.";
 </script>
 
 <template>
@@ -18,9 +35,7 @@
       <div class="connect-layout reveal-up">
         <div class="connect-info">
           <p class="connect-lead">
-            Our engineering collective is ready to dive into your most complex
-            challenges. No middlemen, no corporate bloat—just direct paths to
-            execution.
+            {{ homeData?.data?.contactCopywriting || defaultLead }}
           </p>
           <div class="connect-details">
             <div class="detail-item">
@@ -29,7 +44,9 @@
             </div>
             <div class="detail-item">
               <span class="detail-label">Email</span>
-              <p>hello@cods.dev</p>
+              <p>
+                {{ homeData?.data?.contactEmail || defaultEmail }}
+              </p>
             </div>
           </div>
         </div>

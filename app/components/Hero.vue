@@ -1,5 +1,24 @@
 <script setup lang="ts">
 const colorMode = useState<string>("color-mode");
+const { initReveal } = useScrollReveal();
+
+// Fetch Home Page Settings with fallback
+const { data: homeData, pending } = await useHomePageData();
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
+  }
+});
+
+// Fallback content
+const defaultTitle =
+  "We build systems that work, <br /> <span>so you can focus on scale.</span>";
+const defaultLead =
+  "We are a lean collective of engineers and designers who partner with ambitious teams to ship high-quality software. No middlemen, no overhead—just direct access to experts.";
 </script>
 
 <template>
@@ -24,15 +43,23 @@ const colorMode = useState<string>("color-mode");
 
     <div class="container hero-content">
       <p class="eyebrow reveal-text">Collective of Digital Specialists</p>
-      <h1 class="hero-title reveal-text reveal-type">
-        We build systems that work, <br />
-        <span>so you can focus on scale.</span>
-      </h1>
-      <p class="hero-lead reveal-text">
-        We are a lean collective of engineers and designers who partner with
-        ambitious teams to ship high-quality software. No middlemen, no
-        overhead—just direct access to experts.
+
+      <h1
+        v-if="!pending"
+        class="hero-title reveal-text reveal-type"
+        v-html="homeData?.data?.heroTitle || defaultTitle"
+      ></h1>
+      <h1
+        v-else
+        class="hero-title reveal-text reveal-type"
+        v-html="defaultTitle"
+      ></h1>
+
+      <p v-if="!pending" class="hero-lead reveal-text">
+        {{ homeData?.data?.heroSubheadline || defaultLead }}
       </p>
+      <p v-else class="hero-lead reveal-text">{{ defaultLead }}</p>
+
       <div class="hero-actions reveal-text">
         <a href="#contact" class="btn btn-primary">Start a Project</a>
         <a href="#works" class="btn btn-secondary">View Portfolio</a>

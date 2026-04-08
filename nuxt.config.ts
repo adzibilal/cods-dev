@@ -1,17 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ['reka-ui/nuxt'],
+  modules: ["reka-ui/nuxt"],
+  runtimeConfig: {
+    public: {
+      strapiToken: process.env.STRAPI_TOKEN,
+      strapiUrl: process.env.STRAPI_URL || "https://strapi.adzibilal.my.id",
+    },
+  },
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
         {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
-        }
-      ]
-    }
-  }
-})
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+        },
+      ],
+    },
+  },
+});
