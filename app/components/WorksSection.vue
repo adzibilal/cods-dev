@@ -1,7 +1,53 @@
 <script setup lang="ts">
-defineProps<{
-  works: any[];
-}>();
+const { find } = useStrapiClient();
+const { initReveal } = useScrollReveal();
+const config = useRuntimeConfig();
+const strapiUrl = config.public.strapiUrl;
+
+// Fetch Works from Strapi
+const { data: workData, pending } = await useAsyncData("works", () =>
+  find<any>("works", { populate: ["image"] }),
+);
+
+const works = computed(() => {
+  if (!workData.value?.data) return [];
+  return workData.value.data.map((item: any) => {
+    // Extract text from Strapi Blocks field if necessary
+    const description = Array.isArray(item.description)
+      ? item.description
+          .map((block: any) => block.children?.map((c: any) => c.text).join(""))
+          .join(" ")
+      : item.description;
+
+    // Get the first image from the multiple media field
+    const firstImage = Array.isArray(item.image) ? item.image[0] : item.image;
+    const imageUrl = firstImage?.url || firstImage;
+
+    return {
+      id: item.id.toString(),
+      title: item.title,
+      subtitle: item.subtitle,
+      description,
+      image:
+        typeof imageUrl === "string"
+          ? imageUrl.startsWith("http")
+            ? imageUrl
+            : `${strapiUrl}${imageUrl}`
+          : "/placeholder-work.jpg",
+      badges: item.badges || [],
+      isFeatured: item.isFeatured,
+    };
+  });
+});
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
+  }
+});
 </script>
 
 <template>

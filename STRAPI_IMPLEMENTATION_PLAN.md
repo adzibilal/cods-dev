@@ -85,11 +85,3 @@ This document outlines the required setup in Strapi CMS to manage the content of
    - Enable `find` and `findOne` for all Collection Types above to allow the Nuxt frontend to fetch data without a user session.
 
 ---
-
-## 5. Nuxt Implementation Roadmap
-
-1. **Module Installation**: `npm install @nuxtjs/strapi`.
-2. **ENV Setup**: Add `STRAPI_URL` and `STRAPI_TOKEN` to `.env`.
-3. **Data Refactor**:
-   - Replace local `const works = [...]` with `const { find } = useStrapi();`
-   - Use `transform` to map Strapi's nested data structure to our current component props.

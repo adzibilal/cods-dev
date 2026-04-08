@@ -33,41 +33,6 @@ const services = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M14 11l5 5"></path></svg>`,
   },
 ];
-
-// Testimonials data (keep for now until next phase)
-
-const testimonials = [
-  {
-    name: "Emma Richardson",
-    role: "Product Manager",
-    quote: "Working with CODS Dev felt like having an elite internal engineering team. Their technical depth and speed are unmatched.",
-    avatar: "/avatars/avatar-1.png",
-  },
-  {
-    name: "Daniel Lee",
-    role: "CTO @ Streamline",
-    quote: "The modular team approach is brilliant. We got exactly the niche expertise we needed for our integration without the overhead.",
-    avatar: "/avatars/avatar-2.png",
-  },
-  {
-    name: "Maria Lopez",
-    role: "Senior Engineer",
-    quote: "CODS doesn't just write code; they design systems that scale. Their pragmatic approach to quality saved us months of rework.",
-    avatar: "/avatars/avatar-3.png",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Founder, GrowthMetric",
-    quote: "The level of transparency and direct access to engineers is refreshing. No middlemen, just pure execution and results.",
-    avatar: "/avatars/avatar-4.png",
-  },
-  {
-    name: "Sarah Williams",
-    role: "UX Lead",
-    quote: "They truly understand the intersection of design and engineering. The end product was both technically robust and beautiful.",
-    avatar: "/avatars/avatar-5.png",
-  },
-];
 </script>
 
 <template>
@@ -77,7 +42,7 @@ const testimonials = [
     <LogoCarousel />
     <ServicesSection :services="services" />
     <WorksSection />
-    <TestimonialsSection :testimonials="testimonials" />
+    <TestimonialsSection />
     <ProcessSection />
     <TeamSection />
     <FaqSection />

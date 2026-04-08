@@ -1,24 +1,43 @@
 <script setup lang="ts">
-const posts = [
-  {
-    title: "10 Tips for Elevating Your Design Game",
-    category: "Design",
-    date: "June 27, 2026",
-    image: "/blog-1.png"
-  },
-  {
-    title: "Building Scalable Fintech Infrastructure",
-    category: "Fintech",
-    date: "November 16, 2026",
-    image: "/blog-2.png"
-  },
-  {
-    title: "Designing for Emotion: Connection with Users",
-    category: "UX / UI",
-    date: "January 6, 2027",
-    image: "/blog-3.png"
+const { find } = useStrapiClient();
+const { initReveal } = useScrollReveal();
+const config = useRuntimeConfig();
+const strapiUrl = config.public.strapiUrl;
+
+// Fetch Articles from Strapi
+const { data: blogData, pending } = await useAsyncData("articles", () =>
+  find<any>("articles", { populate: ["category"] }),
+);
+
+const posts = computed(() => {
+  if (!blogData.value?.data) return [];
+  return blogData.value.data.map((post: any) => ({
+    title: post.title,
+    category: post.category?.name || "General",
+    date: new Date(post.publishedAt || post.createdAt).toLocaleDateString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      },
+    ),
+    image: post.cover?.url
+      ? post.cover.url.startsWith("http")
+        ? post.cover.url
+        : `${strapiUrl}${post.cover.url}`
+      : "/blog-1.png",
+  }));
+});
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
   }
-];
+});
 </script>
 
 <template>
@@ -39,7 +58,7 @@ const posts = [
 <style scoped>
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 2.5rem;
 }
 

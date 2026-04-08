@@ -23,8 +23,8 @@ defineProps<{
 
     <div class="work-content">
       <h3 class="work-title">{{ title }}</h3>
-      <p class="work-description">{{ description }}</p>
-      
+      <p class="work-description">{{ subtitle }}</p>
+
       <div class="work-footer-simple">
         <span class="view-project">View Case Study</span>
         <span class="dot-sm"></span>

@@ -1,7 +1,36 @@
 <script setup lang="ts">
-defineProps<{
-  testimonials: any[];
-}>();
+const { find } = useStrapiClient();
+const { initReveal } = useScrollReveal();
+const config = useRuntimeConfig();
+const strapiUrl = config.public.strapiUrl;
+
+// Fetch Testimonials from Strapi
+const { data: testimonialData, pending } = await useAsyncData("testimonials", () =>
+  find<any>("testimonials", { populate: "avatar" }),
+);
+
+const testimonials = computed(() => {
+  if (!testimonialData.value?.data) return [];
+  return testimonialData.value.data.map((t: any) => ({
+    name: t.name,
+    role: t.role,
+    quote: t.quote,
+    avatar: t.avatar?.url
+      ? t.avatar.url.startsWith("http")
+        ? t.avatar.url
+        : `${strapiUrl}${t.avatar.url}`
+      : "/avatars/avatar-1.png",
+  }));
+});
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
+  }
+});
 </script>
 
 <template>

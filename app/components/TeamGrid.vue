@@ -1,26 +1,35 @@
 <script setup lang="ts">
-const team = [
-  {
-    name: "Adzi Bilal",
-    role: "Software Engineer",
-    avatar: "/adzi.png",
-  },
-  {
-    name: "Adzi Bilal",
-    role: "Software Engineer",
-    avatar: "/adzi.png",
-  },
-  {
-    name: "Adzi Bilal",
-    role: "Software Engineer",
-    avatar: "/adzi.png",
-  },
-  {
-    name: "Adzi Bilal",
-    role: "Software Engineer",
-    avatar: "/adzi.png",
-  },
-];
+const { find } = useStrapiClient();
+const { initReveal } = useScrollReveal();
+const config = useRuntimeConfig();
+const strapiUrl = config.public.strapiUrl;
+
+// Fetch Team Members from Strapi
+const { data: teamData, pending } = await useAsyncData("team-members", () =>
+  find<any>("team-members", { populate: "avatar" }),
+);
+
+const team = computed(() => {
+  if (!teamData.value?.data) return [];
+  return teamData.value.data.map((member: any) => ({
+    name: member.name,
+    role: member.role,
+    avatar: member.avatar?.url
+      ? member.avatar.url.startsWith("http")
+        ? member.avatar.url
+        : `${strapiUrl}${member.avatar.url}`
+      : "/adzi.png",
+  }));
+});
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
+  }
+});
 </script>
 
 <template>

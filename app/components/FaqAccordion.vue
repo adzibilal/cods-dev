@@ -7,38 +7,31 @@ import {
   AccordionHeader,
 } from "reka-ui";
 
-const faqs = [
-  {
-    num: "01",
-    question: "How involved can I be in the design process?",
-    answer:
-      "We maintain high transparency through weekly demos and access to our Slack/Discord channels. You are as involved as you want to be.",
-  },
-  {
-    num: "02",
-    question: "What types of projects does CODS specialize in?",
-    answer:
-      "We specialize in complex web applications, fintech solutions, and product infrastructure that needs to scale.",
-  },
-  {
-    num: "03",
-    question: "What is the typical timeline for completing a project?",
-    answer:
-      "Most MVP projects take between 6 to 12 weeks, depending on complexity and the depth of integration required.",
-  },
-  {
-    num: "04",
-    question: "How do you handle post-launch support?",
-    answer:
-      "We offer retained collaboration for ongoing evolution, ensuring your system continues to perform as your user base grows.",
-  },
-  {
-    num: "05",
-    question: "What sets CODS apart from traditional agencies?",
-    answer:
-      "No middlemen. You talk directly to the engineers building your product. We optimize for high-impact execution over overhead.",
-  },
-];
+const { find } = useStrapiClient();
+const { initReveal } = useScrollReveal();
+
+// Fetch FAQs from Strapi
+const { data: faqData, pending } = await useAsyncData("faqs", () =>
+  find<any>("faqs"),
+);
+
+const faqs = computed(() => {
+  if (!faqData.value?.data) return [];
+  return faqData.value.data.map((item: any, index: number) => ({
+    num: (index + 1).toString().padStart(2, "0"),
+    question: item.question,
+    answer: item.answer,
+  }));
+});
+
+// Re-initialize animations after dynamic content loads
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initReveal();
+    });
+  }
+});
 </script>
 
 <template>
